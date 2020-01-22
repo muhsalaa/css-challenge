@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+
+import SideBar from './components/SideBar';
+import NavBar from './components/NavBar';
+import ChallengeOne from './challenges/ch1_';
+import ChallengeTwo from './challenges/ch2_';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    open: false,
+  }
+
+  toggleSideBar = () => {
+    this.setState({ open: !this.state.open });
+  }
+
+  render() {
+    return (
+      <BrowserRouter>
+        <main className="main-content">
+          <SideBar isOpen={this.state.open} />
+          <div className={`main-content__inner ${this.state.open ? 'main-content__inner-active' : ''}`}>
+            <NavBar toggle={this.toggleSideBar} />
+            <Switch>
+              <Redirect from="/" to="/ch_one" exact/>
+              <Route path="/ch_one" component={ChallengeOne}/>
+              <Route path="/ch_two" component={ChallengeTwo}/>
+            </Switch>
+          </div>
+        </main>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;

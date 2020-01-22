@@ -1,0 +1,67 @@
+.sidebar-navigation {
+  width: 250px;
+  left: -250px;
+  height: 100%;
+  background: #151719;
+  border-right: 1px solid #fff;
+  position: fixed;
+  z-index: 1;
+  transition: .5s;
+}
+
+.sidebar-navigation__active {
+  left: 0;
+}
+
+.sidebar-navigation__logo h1 {
+  line-height: 80px;
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
+}
+
+.sidebar-navigation__items ul a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  line-height: 50px;
+  font-size: 1.2rem;
+  color: white;
+  padding-left: 20px;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  border-bottom: 1px solid black;
+  transition: 0.3s;
+}
+
+/* get class, if its li hovered, set the a to padding left 30 */
+.sidebar-navigation__items li:hover a {
+  padding-left: 30px;
+}
+
+.sidebar-navigation__items i {
+  margin-right: 10px;
+}
+
+/*
+.sidebar-navigation__items li {
+  padding: 15px;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.3);
+  cursor: pointer;
+}
+
+.sidebar-navigation__items a {
+  color: #fff;
+  text-decoration: none;
+  word-wrap: break-word;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.sidebar-navigation__items a:hover,
+.sidebar-navigation__items a:active,
+.sidebar-navigation__items a.active {
+  color: yellow;
+}
+*/
